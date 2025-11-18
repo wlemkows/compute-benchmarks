@@ -25,11 +25,12 @@ enum class Api {
     OMP,
     UR,
     OPT,
+    OL,
 
     // Special values
     COUNT,
     FIRST = OpenCL,
-    LAST = OPT,
+    LAST = OL,
     All = 0xffff,
 };
 
@@ -48,6 +49,8 @@ inline std::string to_string(Api api) {
         return "omp";
     case Api::UR:
         return "ur";
+    case Api::OL:
+        return "ol";
     default:
         return to_string_additional(api);
     }
@@ -68,6 +71,8 @@ inline std::string getUserFriendlyApiName(Api api) {
         return "OpenMP";
     case Api::UR:
         return "UnifiedRuntime";
+    case Api::OL:
+        return "Offload";
     default:
         return getUserFriendlyAdditionalApiName(api);
     }
@@ -88,6 +93,8 @@ inline Api parseApi(const std::string &value) {
         return Api::OMP;
     } else if (value == "ur") {
         return Api::UR;
+    } else if (value == "ol") {
+        return Api::OL;
     } else {
         return parseAdditionalApi(value);
     }
@@ -101,6 +108,7 @@ inline bool validateApi(Api api) {
     case Api::OMP:
     case Api::UR:
     case Api::OPT:
+    case Api::OL:
         return true;
     default:
         return false;

@@ -60,6 +60,10 @@ struct Configuration : ArgumentContainer {
     NonNegativeIntegerArgument urPlatformIndex;
     NonNegativeIntegerArgument urDeviceIndex;
 
+    // OL params
+    NonNegativeIntegerArgument olPlatformIndex;
+    NonNegativeIntegerArgument olDeviceIndex;
+
     // Api agnostic params
     StringArgument test;
     DeviceSelectionArgument subDeviceSelection;

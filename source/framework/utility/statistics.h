@@ -36,7 +36,7 @@ class Statistics {
 
 class MeasurementFields {
   public:
-    MeasurementFields(){};
+    MeasurementFields() {};
     MeasurementFields(MeasurementUnit unit, MeasurementType type) : unit{unit}, type{type} {};
 
     void setUnit(MeasurementUnit u) {
